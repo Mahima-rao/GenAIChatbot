@@ -1,4 +1,4 @@
-# 🤖 Generative Agentic Chatbot (ML Scientist Challenge)
+# 🤖 Generative Agentic Chatbot
 
 This is a fully agentic, policy-grounded chatbot that:
 
