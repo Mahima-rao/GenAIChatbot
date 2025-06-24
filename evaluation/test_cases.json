@@ -1,0 +1,43 @@
+[
+  {
+    "user_id": "user1",
+    "message": "Cancel order ORD001",
+    "expected_phrases": ["Orders cannot be cancelled after 10 days",
+  "Sorry, this order is beyond the cancellation window",
+  "Placed more than 10 days ago"]
+  },
+  {
+    "user_id": "user2",
+    "message": "Track my order ORD002",
+    "expected_phrases": ["is currently shipped", "your order is shipped","successfully shipped"]
+  },
+  {
+    "user_id": "user1",
+    "message": "I want to return order ORD002",
+    "expected_phrases": ["does not belong to you","not associated with your account","it doesn't belong to your account","does not belong to your account","you don't currently have an active order"]
+  },
+  {
+    "user_id": "user2",
+    "message": "Check refund for order ORD001",
+    "expected_phrases": ["does not belong to you","not associated with your account","it doesn't belong to your account","does not belong to your account","you don't currently have an active order"]
+  },
+  {
+    "user_id": "user1",
+    "message": "Can I cancel ORD001 and ORD002?",
+    "expected_phrases": ["cannot be cancelled", "successfully cancelled"]
+  },
+  {
+    "user_id": "user3",
+    "message": "Can I cancel ORD003 and ORD004?",
+    "expected_phrases": ["successfully cancelled",
+  "both orders have been cancelled",
+  "eligible for cancellation",
+  "cancelled as they are within policy",
+  "can be cancelled"]
+  },
+  {
+    "user_id": "user2",
+    "message": "I forgot my password",
+    "expected_phrases": ["reset link", "sent to your email","password reset link","Click on the link","receive an email"]
+  }
+]

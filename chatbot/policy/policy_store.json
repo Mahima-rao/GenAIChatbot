@@ -1,0 +1,9 @@
+[
+    {"id": "P1", "text": "Orders placed more than 10 days ago cannot be canceled."},
+    {"id": "P2", "text": "Refunds are processed only after the product is returned."},
+    {"id": "P3", "text": "Password reset links expire after 24 hours."},
+    {"id": "P4", "text": "Delivered items are eligible for return within 15 days of delivery."},
+    {"id": "P5", "text": "Pre-orders can be cancelled anytime before shipping confirmation."},
+    {"id": "P6", "text": "Order tracking updates every 6 hours."}
+  ]
+  

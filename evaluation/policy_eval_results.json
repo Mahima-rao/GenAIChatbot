@@ -1,0 +1,63 @@
+[
+  {
+    "user_id": "user1",
+    "message": "Can I cancel my order after 12 days?",
+    "retrieved_policy_id": "P1",
+    "similarity": 0.683,
+    "expected_phrases": [
+      "cannot be cancelled",
+      "after 10 days",
+      "beyond 10 days"
+    ],
+    "response": "I'm sorry for any inconvenience, but based on our policy, orders cannot be cancelled if they were placed more than 10 days ago. Unfortunately, it seems like we don't have an order ID associated with your request as well. If you could provide the order number or details that would help us better assist you in the future.",
+    "response_ok": true
+  },
+  {
+    "user_id": "user1",
+    "message": "Do you allow password reset?",
+    "retrieved_policy_id": "P3",
+    "similarity": 0.542,
+    "expected_phrases": [
+      "reset link",
+      "sent to your email"
+    ],
+    "response": "Yes, I can certainly help you with a password reset! If you haven't already, please check your registered email for the password reset link that we've just sent you. Remember, the password reset link expires after 24 hours, so it would be best to use it as soon as possible. If you didn't receive the email, feel free to reach out again, and we'll do our best to assist you further!",
+    "response_ok": true
+  },
+  {
+    "user_id": "user2",
+    "message": "How often is order tracking updated?",
+    "retrieved_policy_id": "P6",
+    "similarity": 0.72,
+    "expected_phrases": [
+      "every 6 hours",
+      "updated periodically"
+    ],
+    "response": "The order tracking is updated every 6 hours, but it seems like we don't have an order ID for your current request. If you provide the order ID, I can help you track its status.",
+    "response_ok": true
+  },
+  {
+    "user_id": "user3",
+    "message": "Can I return something I already got?",
+    "retrieved_policy_id": "P4",
+    "similarity": 0.517,
+    "expected_phrases": [
+      "eligible for return",
+      "within 15 days"
+    ],
+    "response": "To return an item, it needs to meet our policy requirements, which is that it should be returned within 15 days of delivery. However, in this case, I couldn't find any details about your order as you haven't provided or remembered the order ID. Could you please provide the Order ID so we can proceed with the return process?",
+    "response_ok": true
+  },
+  {
+    "user_id": "user3",
+    "message": "When will I get a refund?",
+    "retrieved_policy_id": "P2",
+    "similarity": 0.547,
+    "expected_phrases": [
+      "after return",
+      "processed after return"
+    ],
+    "response": "To receive a refund, you need to return the product first. However, at the moment, we seem to be having trouble locating your order as no order ID was provided in our conversation or the system doesn't remember it. Once we have the correct order ID and you return the product, our team will process your refund promptly. Please get in touch with us again once you have your order details ready, so we can assist you further. Thank you for your patience!",
+    "response_ok": false
+  }
+]

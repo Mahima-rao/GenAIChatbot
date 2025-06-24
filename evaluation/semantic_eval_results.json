@@ -1,0 +1,93 @@
+[
+  {
+    "user_id": "user1",
+    "message": "Cancel order ORD001",
+    "expected_phrases": [
+      "Orders cannot be cancelled after 10 days",
+      "Sorry, this order is beyond the cancellation window",
+      "Placed more than 10 days ago"
+    ],
+    "response": "I'm sorry for any inconvenience, but based on our company policy and the status of your order (ORD001), it is not possible to cancel it as it was placed more than 10 days ago. If you have any other concerns or questions, please feel free to ask!",
+    "matched_sentence": "I'm sorry for any inconvenience, but based on our company policy and the status of your order (ORD001), it is not possible to cancel it as it was placed more than 10 days ago",
+    "semantic_score": 0.669,
+    "passed": true
+  },
+  {
+    "user_id": "user2",
+    "message": "Track my order ORD002",
+    "expected_phrases": [
+      "is currently shipped",
+      "your order is shipped",
+      "successfully shipped"
+    ],
+    "response": "Great news! Your order ORD002 has been successfully shipped. According to our tracking system, the next update should be available in about 6 hours. You can check back then for more details on its current location and estimated delivery time. If you have any other questions or concerns, feel free to ask!",
+    "matched_sentence": "Great news! Your order ORD002 has been successfully shipped",
+    "semantic_score": 0.647,
+    "passed": true
+  },
+  {
+    "user_id": "user1",
+    "message": "I want to return order ORD002",
+    "expected_phrases": [
+      "does not belong to you",
+      "not associated with your account",
+      "it doesn't belong to your account"
+    ],
+    "response": "I'm sorry for the confusion, but I can't assist with returning your order (ORD002) as it appears that order doesn't belong to you according to our system. If there is an error or if you have more details about this order, please let me know so I can look into it further. For any other orders or concerns, feel free to ask!",
+    "matched_sentence": "I'm sorry for the confusion, but I can't assist with returning your order (ORD002) as it appears that order doesn't belong to you according to our system",
+    "semantic_score": 0.273,
+    "passed": false
+  },
+  {
+    "user_id": "user2",
+    "message": "Check refund for order ORD001",
+    "expected_phrases": [
+      "does not belong to you",
+      "not associated with your account",
+      "it doesn't belong to your account"
+    ],
+    "response": "I'm sorry for any confusion, but it seems there appears to be a misunderstanding regarding your order ORD001. Our records show that you don't currently have an active order with this number. If you accidentally provided the wrong order number or if you have returned an item from this order, please let me know so I can assist you further. However, as our policy states, refunds are processed only after the product is returned.",
+    "matched_sentence": "Our records show that you don't currently have an active order with this number",
+    "semantic_score": 0.341,
+    "passed": false
+  },
+  {
+    "user_id": "user1",
+    "message": "Can I cancel ORD001 and ORD002?",
+    "expected_phrases": [
+      "cannot be cancelled",
+      "successfully cancelled"
+    ],
+    "response": "I'm sorry for any confusion, but based on our company policy, we are unable to cancel order (ORD001) as it was placed more than 10 days ago. Regarding order (ORD002), it seems that the system does not recognize this order as belonging to you. If there is an error or if you have more details about these orders, please let me know so I can look into it further. For any other concerns, feel free to ask!\nI'm sorry for any confusion, but according to our company policy and system information, order ORD001 cannot be canceled because it was placed more than 10 days ago. As for order ORD002, it does not seem to belong to you based on our system records. If there are any errors or if you have additional details about these orders, please let me know so I can look into it further. In the meantime, if you need assistance with anything else, feel free to ask!",
+    "matched_sentence": "For any other concerns, feel free to ask!\nI'm sorry for any confusion, but according to our company policy and system information, order ORD001 cannot be canceled because it was placed more than 10 days ago",
+    "semantic_score": 0.571,
+    "passed": true
+  },
+  {
+    "user_id": "user3",
+    "message": "Can I cancel ORD003 and ORD004?",
+    "expected_phrases": [
+      "successfully cancelled",
+      "both orders have been cancelled",
+      "eligible for cancellation",
+      "cancelled as they are within policy",
+      "can be cancelled"
+    ],
+    "response": "I'm sorry for any inconvenience, but I have to inform you that we are unable to cancel Order ORD003 as it was placed more than 10 days ago according to our company policy. Regarding Order ORD004, if it is within the specified time frame of 10 days since placement, we should be able to assist you with the cancellation process. Please let me know the order details for ORD004 so I can help you further.\nI'm sorry for any inconvenience, but I have to inform you that we can't cancel Order ORD003 as it was placed more than 10 days ago, according to our policy. However, Order ORD004 has been successfully cancelled. Please check your account or email for confirmation. If you have any other questions or need further assistance, feel free to ask!",
+    "matched_sentence": "However, Order ORD004 has been successfully cancelled",
+    "semantic_score": 0.737,
+    "passed": true
+  },
+  {
+    "user_id": "user2",
+    "message": "I forgot my password",
+    "expected_phrases": [
+      "reset link",
+      "sent to your email"
+    ],
+    "response": "I'm more than happy to help you with that! Since we don't have a direct password reset functionality within this chat, let me guide you through the process to recover your account.\n\n1. Go to our website and click on the \"Sign In\" button.\n2. Click on \"Forgot Password?\" below the login fields.\n3. Enter the email address associated with your account and click \"Send Request.\"\n4. You should receive an email from us shortly with a password reset link. Please note that this link expires after 24 hours for security reasons.\n5. Click on the link and follow the instructions to create a new password for your account.\n\nIf you don't receive an email within a few minutes, please check your spam folder or make sure you've entered the correct email address. If you still have trouble accessing your account after trying these steps, feel free to ask me again!\n\nOnce you've successfully reset your password, you can return to this chat and continue our conversation seamlessly. Have a great day!",
+    "matched_sentence": "Enter the email address associated with your account and click \"Send Request",
+    "semantic_score": 0.523,
+    "passed": false
+  }
+]

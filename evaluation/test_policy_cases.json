@@ -1,0 +1,28 @@
+[
+    {
+      "user_id": "user1",
+      "message": "Can I cancel my order after 12 days?",
+      "expected_phrases": ["cannot be cancelled", "after 10 days", "beyond 10 days"]
+    },
+    {
+      "user_id": "user1",
+      "message": "Do you allow password reset?",
+      "expected_phrases": ["reset link", "sent to your email"]
+    },
+    {
+      "user_id": "user2",
+      "message": "How often is order tracking updated?",
+      "expected_phrases": ["every 6 hours", "updated periodically"]
+    },
+    {
+      "user_id": "user3",
+      "message": "Can I return something I already got?",
+      "expected_phrases": ["eligible for return", "within 15 days"]
+    },
+    {
+      "user_id": "user3",
+      "message": "When will I get a refund?",
+      "expected_phrases": ["after return", "processed after return"]
+    }
+  ]
+  
