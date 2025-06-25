@@ -5,3 +5,5 @@ pydantic
 faiss-cpu
 sentence-transformers
 matplotlib
+gradio
+requests
