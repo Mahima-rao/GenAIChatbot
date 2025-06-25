@@ -70,7 +70,7 @@ This project implements:
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Mahima-rao/GenAIChatbot.git
 cd chatbot
 ```
 
