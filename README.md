@@ -1,80 +1,196 @@
-# 🤖 Generative Agentic Chatbot
 
-This is a fully agentic, policy-grounded chatbot that:
+# 🧠 AI Customer Support Chatbot
 
-- 🧠 Uses a local LLM (Mistral via Ollama)
-- 📚 Retrieves company policies via vector search (FAISS + MiniLM)
-- 🔧 Uses tool-based actions (cancel, track, refund, reset, etc.)
-- 🧾 Maintains user context (order IDs, chat history)
-- 📊 Evaluated with metrics, logs, and visualizations
-
-## 🚀 Features
-
-| Capability              | Implemented |
-|-------------------------|-------------|
-| LLM integration (Mistral)   | ✅ |
-| Policy RAG (FAISS + ST)     | ✅ |
-| Tool abstraction            | ✅ |
-| Order validation            | ✅ |
-| Persistent memory           | ✅ |
-| Confidence scores           | ✅ |
-| Evaluation metrics          | ✅ |
-| Visualization (matplotlib) | ✅ |
+This project is a fully functional **agentic chatbot** designed as part of a **Senior ML Scientist assessment challenge**. It demonstrates capabilities in **tool-augmented reasoning**, **LLM orchestration**, **policy-aware interactions**, and **real-world order management simulation**.
 
 ---
 
-## ⚙️ Setup
+## 📌 Initial Problem Statement
+
+> Build a generative AI-powered customer support chatbot.  
+> It should:
+- Respond to user messages
+- Follow company policies (e.g., cancellation after 10 days)
+- Call tools like `OrderTracking`, `OrderCancellation`
+- Support multiple user sessions
+- Evaluate how effectively the chatbot follows reasoning steps
+- Include a designed experiment to measure performance
+
+---
+
+## ✅ Solution Overview
+
+This project implements:
+
+### 🧠 Agentic Chatbot Core
+- Uses a FastAPI backend
+- Orchestrates tools using an agent loop (`agent_core.py`)
+- Remembers users and order context (via memory module)
+
+### 🛠️ Tools
+- `CancelOrder`, `TrackOrder`, `ReturnOrder`, `PasswordReset`,`RefundOrder`
+- Each tool verifies conditions before returning structured results
+- Tools include company rule checks (e.g., cancellation policy, tracking policy, user match)
+
+### 📚 Company Policy Retrieval
+- Policies are stored and embedded into a **vector database**
+- Retrieval is done using sentence similarity
+- Matched policy is passed to the LLM for grounded response generation
+
+### 🤖 LLM-Guided Conversational Layer
+- Classifies user intent (e.g., cancel, track, return, reset)
+- Synthesizes tool results and company policies into natural, helpful language
+- Maintains context and conversational memory across user turns
+- Grounds responses in retrieved policy content and tool outcomes
+- Avoids hallucination by deferring to tools and rules
+- Converts structured data into human-friendly explanations
+
+### 🧪 Experimentation & Evaluation
+- Extensive evaluation with test cases
+- Semantic similarity measured using **CrossEncoder**
+- Metrics reported: intent accuracy, tool correctness, response quality
+- Visualized with histograms, pie charts, and semantic distribution plots
+
+---
+
+## 🧠 Assumptions Made
+
+- Five users exist: `Shashi`, `Joe`, `Magda`
+- Each user has predefined orders in memory
+- Orders contain fields: `order_date`, `status`, `user_id`
+- Cancellation is denied if older than 10 days
+- Refunds only processed after product is returned
+- Password reset is assumed to always succeed
+- No real-time database or persistence used (in-memory demo)
+
+---
+
+## 🚀 How to Run the App
+
+### 1. Clone the Repository
 
 ```bash
-# Install dependencies
+git clone <your-repo-url>
+cd chatbot
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv aichatbot
+source aichatbot/bin/activate  # or .\aichatbot\Scripts\activate on Windows
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-
-# Run local LLM
-ollama run mistral
-
-# Start FastAPI app
-uvicorn main:app --reload
-
-# Send a request:
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d '{"user_id": "user1", "message": "Cancel order ORD001"}'
 ```
-## 🧪 Evaluation
+
+### 4. Run the FastAPI Backend
 
 ```bash
-#✅ General Tests
-python evaluation/evaluate.py
+uvicorn main:app --reload
+```
+### 5. Running the LLM with Ollama (Mistral)
 
-#✅ Policy Retrieval Tests
-python evaluation/eval_policy.py
+This chatbot uses the open-source **Mistral** model via [Ollama](https://ollama.com/) to generate responses based on tool outputs and company policies.
 
-#✅ Visualize Policy Confidence
-Open:
-evaluation/policy_confidence_plot.ipynb
-
+Run the model
+```bash
+ollama run mistral
 ```
 
-## 📈 Metrics
+### 6. Launch the Chat UI (Gradio)
 
-| Metric              | Value (example) |
-| ------------------- | --------------- |
-| Intent Accuracy     | 92.5%           |
-| Tool Accuracy       | 90.0%           |
-| Policy Match Rate   | 100.0%          |
-| Response Accuracy   | 95.0%           |
-| End-to-End Accuracy | 88.0%           |
+```bash
+python chat_ui.py
+```
 
+✅ Access at [http://localhost:7860](http://localhost:7860)
 
-## 📂 Structure
+---
+### The API endpoint exposed:
 
-├── agent/            → agent loop, LLM interface
-├── tools/            → cancel, track, return, refund, reset
-├── api/              → mock order DB
-├── memory/           → per-user session memory
-├── chatbot/policy/   → policy store + vector DB (FAISS)
-├── evaluation/       → test cases, eval scripts, plots
-├── main.py           → FastAPI entry
+- `POST /chat` — Main endpoint for handling chatbot conversations.
+  - Input: `{"user_id": ..., "message": ...}`
+  - Output: `{"response": "..."}`
 
+Used by:
+- Postman
+- Evaluation scripts
+- Gradio UI frontend
 
-## Notes
-This chatbot is fully modular, interpretable, and extensible — ready for production and research.
+## 📊 Evaluation & Experimentation
+
+The evaluation consists of:
+- ✅ End-to-end test cases
+- ✅ Tool invocation accuracy
+- ✅ Semantic similarity using CrossEncoder
+- ✅ Policy matching evaluation
+- ✅ Metrics:
+  - Intent Accuracy
+  - Tool Accuracy
+  - Semantic Score ≥ Threshold
+  - End-to-End Pass Rate
+
+### 📈 Visualizations
+- Histograms for semantic similarity
+- Policy match confidence bars
+- Pie chart of pass/fail
+- Full experiment report in `chatbot_experiment_analysis.ipynb`
+
+---
+
+## 📁 Project Structure
+
+```
+chatbot/
+├── main.py                # FastAPI app
+├── agent/                 # Agent logic + prompt builder
+├── data/                  # In-memory order database used by tools
+├── tools/                 # Cancel, Track, Return, Reset
+├── memory/                # In-memory user context
+├── policy/                # Vector DB + retrieval
+├── evaluation/            # Test cases, semantic evaluation
+├── chat_ui.py             # Gradio-based UI for demo
+├── requirements.txt
+├── README.md
+```
+
+---
+
+## 📚 Example Policy Rules
+
+- Orders placed more than 10 days ago cannot be canceled.
+- Refunds are processed only after the product is returned.
+- Delivered items are eligible for return within 15 days.
+- Pre-orders can be cancelled before shipping.
+- Password reset links expire after 24 hours.
+
+---
+
+## 🌐 Deployment Notes
+
+- The UI is Gradio-based and runs locally
+- Backend could be exposed via `ngrok` for full demo
+
+---
+
+## ✨ What Makes This Stand Out
+
+- ✅ Agentic LLM orchestration with real tools
+- ✅ Vector DB integration for grounded policy retrieval
+- ✅ CrossEncoder evaluation for precision
+- ✅ Modular architecture, readable and extendable
+- ✅ Clean UI demo via Gradio with user switching
+- ✅ Insightful metrics and notebook-style analysis
+
+---
+
+## 👤 About Author
+- AI/ML Engineer with 6+ years of experience
+- Specialized in Generative AI, NLP, and Recommendation Systems
+- Hands-on experience in AI-driven solutions and large-scale deployment
+- Passionate about AI innovations and solving complex problems
 
