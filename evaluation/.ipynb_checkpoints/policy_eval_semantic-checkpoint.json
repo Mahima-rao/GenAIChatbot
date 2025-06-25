@@ -1,0 +1,57 @@
+[
+  {
+    "user_id": "user1",
+    "message": "Can I cancel my order after 12 days?",
+    "response": "I'm sorry for any inconvenience, but as per our company policy, orders cannot be canceled if they have been placed more than 10 days ago. It seems like we might not have your specific order details as there appears to be an error in our system regarding the order ID provided or remembered. If you can provide us with additional information about your order, I'd be happy to help you further!",
+    "expected_policy_id": "P1",
+    "retrieved_policy_id": "P1",
+    "retrieval_similarity": 0.683,
+    "semantic_score": 0.545,
+    "response_ok": false,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user1",
+    "message": "Do you allow password reset?",
+    "response": "Of course! I can assist you with that. A password reset link has been sent to the email address associated with your account. If you don't see it in your inbox, please check your spam or junk folder as well. If you don't receive a password reset email within 24 hours, feel free to reach out again, and I'll be happy to help further!",
+    "expected_policy_id": "P3",
+    "retrieved_policy_id": "P3",
+    "retrieval_similarity": 0.542,
+    "semantic_score": 0.603,
+    "response_ok": true,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user2",
+    "message": "How often is order tracking updated?",
+    "response": "The order tracking is typically updated every 6 hours, but currently, there seems to be an error with your order. I'd suggest double-checking if you provided the correct Order ID or let me help you find it if needed. Once the issue is resolved, the updates will resume as scheduled.",
+    "expected_policy_id": "P6",
+    "retrieved_policy_id": "P6",
+    "retrieval_similarity": 0.72,
+    "semantic_score": 0.535,
+    "response_ok": false,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user3",
+    "message": "Can I return something I already got?",
+    "response": "To process a return, we require an Order ID which is associated with your purchased item. Unfortunately, as there's no Order ID available from our records or in your recent conversation, it isn't possible for me to assist you with the return at this time. Kindly double-check your order confirmation email or contact us with any relevant details so we can look up your order and proceed accordingly. Keep in mind that returned items must be unopened and in their original packaging, and returns must be made within 15 days of delivery.",
+    "expected_policy_id": "P4",
+    "retrieved_policy_id": "P4",
+    "retrieval_similarity": 0.517,
+    "semantic_score": 0.462,
+    "response_ok": false,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user3",
+    "message": "When will I get a refund?",
+    "response": "To provide a refund, we first need to process your return. As you haven't yet provided an Order ID or any other details about your purchase, I can't specify an exact timeframe for the refund at this moment. Once we have all necessary information, we will look up your order and proceed with the return process accordingly. Please double-check your order confirmation email, if possible, and get back to us with the Order ID or any relevant details so we can expedite the process. Keep in mind that returns must be unopened and in their original packaging, and returns must be made within 15 days of delivery. We apologize for any inconvenience this may cause and appreciate your understanding and cooperation.",
+    "expected_policy_id": "P2",
+    "retrieved_policy_id": "P2",
+    "retrieval_similarity": 0.547,
+    "semantic_score": 0.649,
+    "response_ok": true,
+    "policy_ok": true
+  }
+]
