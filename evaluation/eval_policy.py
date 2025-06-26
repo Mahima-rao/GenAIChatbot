@@ -2,7 +2,6 @@ import os
 import sys
 import json
 from sentence_transformers import CrossEncoder
-# Add project root to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.abspath(os.path.join(current_dir, '..')))
 

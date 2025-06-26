@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from agent.agent_core import agent_loop
+# from agent.agent_core import agent_loop
+from agent.agent_core_agentic import agent_loop
 
 app = FastAPI()
 

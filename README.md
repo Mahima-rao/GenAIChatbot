@@ -1,7 +1,7 @@
 
-# 🧠 AI Customer Support Chatbot
+# 🧠 AI Customer Support Chatbot- ZenBot
 
-This project is a fully functional **agentic chatbot** designed as part of a **Senior ML Scientist assessment challenge**. It demonstrates capabilities in **tool-augmented reasoning**, **LLM orchestration**, **policy-aware interactions**, and **real-world order management simulation**.
+This project is a fully functional **agentic chatbot**. It demonstrates capabilities in **tool-augmented reasoning**, **LLM orchestration**, **policy-aware interactions**, and **real-world order management simulation**.
 
 ---
 
@@ -55,11 +55,14 @@ This project implements:
 
 ## 🧠 Assumptions Made
 
-- Five users exist: `Shashi`, `Joe`, `Magda`
+- Three users exist: `Shashi`, `Jo`, `Magda`
 - Each user has predefined orders in memory
 - Orders contain fields: `order_date`, `status`, `user_id`
-- Cancellation is denied if older than 10 days
-- Refunds only processed after product is returned
+- Orders placed more than 10 days ago cannot be canceled.
+- Refunds are processed only after the product is returned.
+- Delivered items are eligible for return within 15 days.
+- Pre-orders can be cancelled before shipping.
+- Password reset links expire after 24 hours.
 - Password reset is assumed to always succeed
 - No real-time database or persistence used (in-memory demo)
 
@@ -78,7 +81,7 @@ cd chatbot
 
 ```bash
 python -m venv aichatbot
-source aichatbot/bin/activate  # or .\aichatbot\Scripts\activate on Windows
+.\aichatbot\Scripts\activate on Windows
 ```
 
 ### 3. Install Dependencies
@@ -102,6 +105,8 @@ ollama run mistral
 ```
 
 ### 6. Launch the Chat UI (Gradio)
+
+Lightweight Gradio UI for quick testing and demo purposes
 
 ```bash
 python chat_ui.py
@@ -185,6 +190,36 @@ chatbot/
 - ✅ Modular architecture, readable and extendable
 - ✅ Clean UI demo via Gradio with user switching
 - ✅ Insightful metrics and notebook-style analysis
+
+---
+
+## 🚀 Future Scope & Enhancements
+Persistent storage integration
+- Move from in-memory mock data to real databases (SQL/NoSQL) for user sessions, orders, and policy management, enabling long-term state and real deployment.
+
+Multi-modal input/output: 
+- Extend the chatbot to handle images, voice, and video (e.g., sending a picture of a damaged product for return requests).
+
+Expanded policy management: 
+- Implement a policy editor UI for non-technical staff to add or modify company rules dynamically.
+
+Agentic multi-tool orchestration: 
+- Develop more complex multi-step workflows where the chatbot chains tools and API calls conditionally based on intermediate results.
+
+User authentication and security: 
+- Add user authentication, secure session management, and GDPR-compliant data handling.
+
+Real-time integration: 
+- Connect the chatbot to live order management and CRM systems for accurate, up-to-date information.
+
+Self-learning feedback loop: 
+- Incorporate user feedback to automatically update policy retrieval rankings and improve response accuracy.
+
+Advanced evaluation: 
+- Expand experimentation with A/B testing, user satisfaction metrics, and real customer interactions.
+
+Deployment scaling: 
+- Containerize the solution and deploy on cloud platforms with autoscaling, monitoring, and analytics.
 
 ---
 

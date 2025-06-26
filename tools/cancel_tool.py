@@ -1,5 +1,5 @@
 from tools.base_tool import BaseTool
-from api.orders_db import get_order
+from data.orders_db import get_order
 from datetime import datetime
 
 class CancelOrderTool(BaseTool):
@@ -20,4 +20,5 @@ class CancelOrderTool(BaseTool):
         if (datetime.today() - order_date).days > 10:
             return {"status": "denied", "message": f"Order {order_id} is older than 10 days and cannot be cancelled."}
 
-        return {"status": "success", "message": f"Order {order_id} has been cancelled."}
+        return {"status": "success", "order_id": order_id, "action": "cancelled","message": f"Order {order_id} has been successfully cancelled."}
+

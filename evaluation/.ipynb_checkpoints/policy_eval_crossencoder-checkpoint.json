@@ -1,0 +1,62 @@
+[
+  {
+    "user_id": "user1",
+    "message": "Can I cancel my order after 12 days?",
+    "expected_policy_id": "P1",
+    "retrieved_policy_id": "P1",
+    "retrieval_similarity": 0.683,
+    "crossencoder_score": 0.5400000214576721,
+    "best_matched_phrase": "after 10 days",
+    "response": "I'm sorry for any inconvenience, but according to our company policy, orders placed more than 10 days ago cannot be canceled. It seems like we might not have your order ID or it's not remembered in our system due to the time lapse. If you can provide the order ID, I'd be happy to help with any other questions or concerns you may have about your order.",
+    "response_ok": true,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user1",
+    "message": "Do you allow password reset?",
+    "expected_policy_id": "P3",
+    "retrieved_policy_id": "P3",
+    "retrieval_similarity": 0.542,
+    "crossencoder_score": 0.5490000247955322,
+    "best_matched_phrase": "reset link",
+    "response": "Yes, we certainly do! If you need to reset your password, a link will be sent to the email address associated with your account. Please keep in mind that the password reset link expires after 24 hours for security reasons. If you didn't receive an email, make sure to check your spam folder. If you still can't find it, feel free to reach out again and I'd be happy to help!",
+    "response_ok": true,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user2",
+    "message": "How often is order tracking updated?",
+    "expected_policy_id": "P6",
+    "retrieved_policy_id": "P6",
+    "retrieval_similarity": 0.72,
+    "crossencoder_score": 0.5989999771118164,
+    "best_matched_phrase": "every 6 hours",
+    "response": "The order tracking is typically updated every 6 hours, however, I'm currently unable to provide an update as there seems to be an issue with the order ID. Please ensure you have provided the correct order ID and try again later for the latest status update.",
+    "response_ok": true,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user3",
+    "message": "Can I return something I already got?",
+    "expected_policy_id": "P4",
+    "retrieved_policy_id": "P4",
+    "retrieval_similarity": 0.517,
+    "crossencoder_score": 0.7089999914169312,
+    "best_matched_phrase": "within 15 days",
+    "response": "To be able to process a return, we require an order number or details about your previous purchase so that our system can locate it in our database. If you have your order ID, please provide it, and I'll guide you through the return process. Otherwise, if you don't remember the order ID or have any questions, feel free to share more information about your recent transaction, and I'll do my best to assist you. Keep in mind that items must be returned within 15 days of delivery according to our company policy.",
+    "response_ok": true,
+    "policy_ok": true
+  },
+  {
+    "user_id": "user3",
+    "message": "When will I get a refund?",
+    "expected_policy_id": "P2",
+    "retrieved_policy_id": "P2",
+    "retrieval_similarity": 0.547,
+    "crossencoder_score": 0.5139999985694885,
+    "best_matched_phrase": "after return",
+    "response": "To process a refund for your return, we need to first receive the item back. After we have received and processed your return, it usually takes 7-10 business days for the refund to be credited back to your original payment method. However, since you don't seem to have your order ID yet, I would recommend checking your email for any transaction confirmation messages that might contain the order number. If you are unable to locate it, feel free to share more details about your purchase so I can help you find it and guide you through the return process.",
+    "response_ok": true,
+    "policy_ok": true
+  }
+]

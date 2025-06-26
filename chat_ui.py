@@ -13,16 +13,20 @@ def chat_with_bot(message, history, user_id):
         reply = res.json().get("response", "⚠️ No response.")
     except Exception as e:
         reply = f"⚠️ Error: {str(e)}"
-    history.append((message, reply))
+
+    # Show user ID and format message
+    user_msg = f"👤 {user_id}: {message}"
+    bot_msg = f"🤖 Bot: {reply}"
+    history.append((user_msg, bot_msg))
     return "", history
 
 # Build the Gradio interface
 with gr.Blocks() as demo:
-    gr.Markdown("## 🤖 AI Customer Support Chatbot")
+    gr.Markdown("## 🤖 ZenBot")
 
     with gr.Row():
         user_id_dropdown = gr.Dropdown(
-            choices=["user1", "user2", "user3"],
+            choices=["Shashi", "Jo", "Magda","None"],
             label="Select User",
             value="None"
         )
@@ -31,13 +35,14 @@ with gr.Blocks() as demo:
     message_box = gr.Textbox(placeholder="Type your message here...", label="Your Message")
     send_button = gr.Button("Send")
 
-    # Connect button and textbox to function
+    # Send button click triggers chat
     send_button.click(
         chat_with_bot,
         inputs=[message_box, chatbot, user_id_dropdown],
         outputs=[message_box, chatbot]
     )
 
+    # Hitting enter also sends message
     message_box.submit(
         chat_with_bot,
         inputs=[message_box, chatbot, user_id_dropdown],
