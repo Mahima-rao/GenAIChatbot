@@ -146,6 +146,8 @@ The evaluation consists of:
 - Full experiment report in `experiment_analysis.ipynb`
 
 ---
+### 📝 Design decision document
+- Saved file under the name Design_decision_documentation.pdf
 
 ## 📁 Project Structure
 
