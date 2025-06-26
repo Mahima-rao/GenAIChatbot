@@ -143,7 +143,7 @@ The evaluation consists of:
 - Histograms for semantic similarity
 - Policy match confidence bars
 - Pie chart of pass/fail
-- Full experiment report in `chatbot_experiment_analysis.ipynb`
+- Full experiment report in `experiment_analysis.ipynb`
 
 ---
 
