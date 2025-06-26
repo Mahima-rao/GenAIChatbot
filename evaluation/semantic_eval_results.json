@@ -11,13 +11,13 @@
       "Sorry, this order is beyond the cancellation window",
       "Placed more than 10 days ago"
     ],
-    "best_matched_phrase": "Orders cannot be cancelled after 10 days",
-    "semantic_score": 0.6079999804496765,
-    "response": "I'm sorry for any inconvenience, but I'm unable to cancel order ORD001 as it was placed more than 10 days ago according to our policy. If you have any other questions or need assistance with something else, feel free to ask!",
+    "best_matched_phrase": "Sorry, this order is beyond the cancellation window",
+    "semantic_score": 0.418,
+    "response": "I'm sorry for any inconvenience, but it seems that the order you requested to cancel, ORD001, does not belong to your account. If this is an error, please make sure you have the correct order number or consult the order history in your account for more details.",
     "intent_ok": true,
     "tool_ok": true,
     "response_ok": true,
-    "confidence_ok": false,
+    "confidence_ok": true,
     "passed": true
   },
   {
@@ -33,12 +33,12 @@
       "successfully shipped"
     ],
     "best_matched_phrase": "your order is shipped",
-    "semantic_score": 0.5600000023841858,
-    "response": "Your order ORD002 has been successfully shipped! According to our system, it should be updated every 6 hours, so you can expect the next tracking update soon. In the meantime, if you have any other questions or need assistance, feel free to ask!",
+    "semantic_score": 0.331,
+    "response": "I'm sorry for any inconvenience, but it seems there was an error when trying to track your order ORD002. The order does not appear to belong to you. If you believe this is in error, please double-check the order number or contact our customer support team for assistance. Order tracking updates every 6 hours, so I suggest checking back later or getting in touch with us directly. Thank you!",
     "intent_ok": true,
     "tool_ok": true,
     "response_ok": true,
-    "confidence_ok": false,
+    "confidence_ok": true,
     "passed": true
   },
   {
@@ -55,18 +55,18 @@
       "does not belong to your account",
       "you don't currently have an active order"
     ],
-    "best_matched_phrase": "not associated with your account",
-    "semantic_score": 0.6029999852180481,
-    "response": "I'm sorry for any confusion, but I can't process a return for order ORD002 as it doesn't belong to your account according to our system. If you believe there's an error or need further assistance, please let me know and I'd be happy to help!",
+    "best_matched_phrase": "it doesn't belong to your account",
+    "semantic_score": 0.585,
+    "response": "I'm sorry for any confusion, but it appears there seems to be an issue with returning order ORD002 as well. The tool indicates that this order does not belong to your account. If you believe this is an error, please double-check the order number or consult your order history in your account for more details. Additionally, I would like to inform you that we can't process returns for orders older than 10 days as per our policy.",
     "intent_ok": true,
     "tool_ok": true,
     "response_ok": true,
-    "confidence_ok": false,
+    "confidence_ok": true,
     "passed": true
   },
   {
     "user_id": "user2",
-    "message": "Check refund for order ORD001",
+    "message": "I want refund for order ORD001",
     "expected_intent": "refund",
     "predicted_intent": "refund",
     "expected_tool": "RefundStatus",
@@ -78,13 +78,13 @@
       "does not belong to your account",
       "you don't currently have an active order"
     ],
-    "best_matched_phrase": "it does not belong to your account",
-    "semantic_score": 0.4819999933242798,
-    "response": "I'm sorry for any confusion, but it seems there appears to be an error with the system regarding your request for a refund on Order ORD001. Since this order does not belong to you, we cannot process a refund for it. However, if you have any questions or concerns about another order, such as ORD002, I'd be more than happy to help!",
+    "best_matched_phrase": "it doesn't belong to your account",
+    "semantic_score": 0.513,
+    "response": "I'm sorry for any confusion, but it seems there was an error with your request for a refund on Order ORD001. The reason for this error is that the order does not belong to you. Refunds can only be processed after the product is returned according to our policy. If you believe this is in error and the order number belongs to you, please contact our customer support team directly at your earliest convenience so we can assist you further. Thank you!",
     "intent_ok": true,
     "tool_ok": false,
-    "response_ok": false,
-    "confidence_ok": false,
+    "response_ok": true,
+    "confidence_ok": true,
     "passed": false
   },
   {
@@ -99,12 +99,12 @@
       "successfully cancelled"
     ],
     "best_matched_phrase": "cannot be cancelled",
-    "semantic_score": 0.6769999861717224,
-    "response": "I'm sorry for any inconvenience, but I have to inform you that we can't cancel order ORD001 as it was placed more than 10 days ago according to our company policy. Unfortunately, the same applies to order ORD002 if it falls under the same timeframe. If you have any other questions or need assistance with anything else, feel free to ask!\nI'm sorry for any inconvenience, but I have to inform you that we can't process a cancellation for ORD001 or ORD002 as they were placed more than 10 days ago according to our policy. Additionally, I'm unable to assist with the cancellation of ORD002 because it doesn't seem to be associated with your account, based on the system's response. If you have any other questions or need further assistance, please let me know!",
+    "semantic_score": 0.55,
+    "response": "I'm sorry, but I cannot cancel order numbers ORD001 and ORD002 as they do not appear to belong to your account. If there has been an error in the system, please double-check the order numbers or consult your order history in your account for more details. Additionally, it is important to note that we can't process returns for orders older than 10 days as per our policy.",
     "intent_ok": true,
     "tool_ok": true,
     "response_ok": true,
-    "confidence_ok": false,
+    "confidence_ok": true,
     "passed": true
   },
   {
@@ -122,12 +122,12 @@
       "receive an email"
     ],
     "best_matched_phrase": "password reset link",
-    "semantic_score": 0.550000011920929,
-    "response": "I'm sorry for any inconvenience, but it seems like you've forgotten your password! Don't worry, we can help you with that. Let me generate a new temporary password for you, and then I'll guide you through the steps to reset it. Remember, this link is valid only for 24 hours, so please make sure to set a new password as soon as possible. If you encounter any issues or have questions, feel free to ask!",
+    "semantic_score": 0.482,
+    "response": "I'm sorry for any inconvenience, but it seems like you've forgotten your password. To help you regain access to your account, a password reset link has been sent to the email address we have on file for you. Please check your inbox and follow the instructions provided in that email to complete the process.\n\nFor your security, please remember that password reset links expire after 24 hours. If you don't receive or see the email, make sure to check your spam folder as well. If you still haven't received the link after this time, feel free to reach out again and I'd be happy to help!",
     "intent_ok": true,
     "tool_ok": true,
     "response_ok": true,
-    "confidence_ok": false,
+    "confidence_ok": true,
     "passed": true
   }
 ]

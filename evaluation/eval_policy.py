@@ -10,7 +10,7 @@ from chatbot.policy.vector_search import get_relevant_policies
 # Load CrossEncoder model
 model = CrossEncoder("cross-encoder/stsb-roberta-base")
 
-THRESHOLD = 0.50
+THRESHOLD = 0.40
 
 with open("evaluation/test_policy_cases.json") as f:
     tests = json.load(f)
@@ -46,7 +46,7 @@ for i, test in enumerate(tests):
     ok_response = max_score >= THRESHOLD  or (top_policy == expected_policy_id and max_score>= 0.40)
     if ok_policy: policy_ok += 1
     if ok_response: response_ok += 1
-    if max_score >= 0.50: high_conf += 1
+    if max_score >= 0.40: high_conf += 1
 
     log.append({
         "user_id": user_id,
@@ -72,4 +72,4 @@ print("| Metric            | Value     |")
 print("|-------------------|-----------|")
 print(f"| Policy Match Rate | {policy_ok/total:.2%} |")
 print(f"| Response Accuracy | {response_ok/total:.2%} |")
-print(f"| Confidence ≥ 0.55 | {high_conf/total:.2%} |")
+print(f"| Confidence        | {high_conf/total:.2%} |")

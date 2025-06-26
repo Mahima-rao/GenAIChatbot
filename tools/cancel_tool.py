@@ -6,19 +6,32 @@ class CancelOrderTool(BaseTool):
     name = "CancelOrder"
 
     def run(self, user_id, user_input, memory, **kwargs):
-        order_id = kwargs.get("order_id") or memory.get_user_data(user_id, "last_order")
-        if not order_id:
+        order_ids = kwargs.get("order_id") or memory.get_user_data(user_id, "last_order")
+
+        # Always make order_ids a list
+        if isinstance(order_ids, str):
+            order_ids = [order_ids]
+
+        if not order_ids:
             return {"status": "error", "message": "No order ID provided or remembered."}
 
-        order = get_order(order_id)
-        if not order:
-            return {"status": "error", "message": f"Order {order_id} not found."}
-        if order["user_id"] != user_id:
-            return {"status": "error", "message": f"Order {order_id} does not belong to you."}
+        results = []
+        for order_id in order_ids:
+            order = get_order(order_id)
+            if not order:
+                results.append(f"❌ Order {order_id} not found.")
+                continue
 
-        order_date = datetime.strptime(order["order_date"], "%Y-%m-%d")
-        if (datetime.today() - order_date).days > 10:
-            return {"status": "denied", "message": f"Order {order_id} is older than 10 days and cannot be cancelled."}
+            if order["user_id"] != user_id:
+                results.append(f"❌ Order {order_id} does not belong to you.")
+                continue
 
-        return {"status": "success", "order_id": order_id, "action": "cancelled","message": f"Order {order_id} has been successfully cancelled."}
+            order_date = datetime.strptime(order["order_date"], "%Y-%m-%d")
+            if (datetime.today() - order_date).days > 10:
+                results.append(f"⏳ Order {order_id} is older than 10 days and cannot be cancelled.")
+                continue
 
+            results.append(f"✅ Order {order_id} has been cancelled.")
+
+        final_message = "\n".join(results)
+        return {"status": "success", "message": final_message}

@@ -40,7 +40,7 @@
   },
   {
     "user_id": "user2",
-    "message": "Check refund for order ORD001",
+    "message": "I want refund for order ORD001",
     "expected_intent": "refund",
     "expected_tool": "RefundStatus",
     "expected_policy_id": "P2",
