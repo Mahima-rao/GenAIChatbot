@@ -115,6 +115,7 @@ python chat_ui.py
 ✅ Access at [http://localhost:7860](http://localhost:7860)
 
 ---
+
 ### The API endpoint exposed:
 
 - `POST /chat` — Main endpoint for handling chatbot conversations.
@@ -126,7 +127,22 @@ Used by:
 - Evaluation scripts
 - Gradio UI frontend
 
-## 📊 Evaluation & Experimentation
+---
+
+### Some demo Screenshots
+
+- 1. Track Order
+![alt text](Demo_Images/Track_order.png)
+
+- 2. Track and cancel in a multiturn conversation
+![alt text](Demo_Images/Track_and_cancel_with_memory.png)
+
+- 3. Password Reset
+![alt text](Demo_Images/Password_reset.png)
+
+--- 
+
+### 📊 Evaluation & Experimentation
 
 The evaluation consists of:
 - ✅ End-to-end test cases
